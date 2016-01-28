@@ -41,7 +41,11 @@ border: 2px solid black;
 </c:forEach>
 </table>
 </section>
+<p>
 <a href="<c:url value='/Event'/>">Add Event</a>
+</p>
+<p>
 <a href="<c:url value='/admin'/>">Admin's Protected Page</a>
+</p>
 </body>
 </html>

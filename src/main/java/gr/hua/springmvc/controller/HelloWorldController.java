@@ -317,7 +317,7 @@ public class HelloWorldController {
 		public ModelAndView addRequest(@ModelAttribute("newRequest") Request req, BindingResult result, HttpServletRequest request) throws SQLException {
 			
 			ModelAndView model = new ModelAndView();
-				//checkDao.getter()
+			
 				if(req.getId()==0){
 				requestDao.save(req);
 			 		

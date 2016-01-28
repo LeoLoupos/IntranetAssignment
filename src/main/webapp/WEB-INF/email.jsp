@@ -41,7 +41,11 @@ background-color:  #f2f2f2;
 </c:forEach>
 </table>
 </section>
+<p>
 <a href="<c:url value='/Email'/>">Add E-mail</a>
+</p>
+<p>
 <a href="<c:url value='/admin'/>">Admin's Protected Page</a>
+</p>
 </body>
 </html>
