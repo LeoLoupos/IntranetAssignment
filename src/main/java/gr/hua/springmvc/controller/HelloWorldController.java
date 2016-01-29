@@ -322,7 +322,6 @@ public class HelloWorldController {
 			 	requestDao.update(req);	
 			 	}
 
-			 	/// if its 0 auto inc from db
 			 	request.setAttribute("newAppointment", req.getAmka());
 				model = new ModelAndView("redirect:/req_user");
 			

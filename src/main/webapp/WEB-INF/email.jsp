@@ -33,8 +33,8 @@ background-color:  #f2f2f2;
 	<c:forEach items="${emails}" var="eemail"> 
   <tr>
     <td>${eemail.id}</td>
-    <td>${eemail.email}</td>
-    <td>${eemail.name}</td>        
+    <td>${eemail.name}</td>
+    <td>${eemail.email}</td>        
     <td><a href="<c:url value='/Email/remove/${eemail.id}'/> " > Delete </a></td>
     
   </tr>
