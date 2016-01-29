@@ -242,13 +242,11 @@ public class HelloWorldController {
 			
 			return model;
 		}
-		/*
-		
 		@RequestMapping(value = "/setAppoint", method = RequestMethod.POST)
 		public ModelAndView setApp(@ModelAttribute("newAppoint") ReqAppoint req, HttpServletRequest request) throws SQLException {
 			
 			ModelAndView model = new ModelAndView();
-			/*
+			
 			int amka = req.getAmka();
 			String name = req.getName();
 			String surname = req.getSurname();
@@ -266,17 +264,14 @@ public class HelloWorldController {
 			app.setEmergency(emer);
 			app.setDate(date);
 			app.setTime(time);
-			appointmentDao.save(app);
-				
-			//reqDao.set(req);
+			appointmentDao.save(app);	
 			
-			
+					
 			 	request.setAttribute("newAppoint", req.getAmka());
 				model = new ModelAndView("redirect:/req_appointment");
-			
+				reqDao.deleteById(amka);
 			return model;
 		}
-		*/
 		@RequestMapping("/Appointment/remove/{amka}")
 		public String removeApp(@PathVariable("id") int id) {
 
@@ -289,14 +284,14 @@ public class HelloWorldController {
 			model.addAttribute("newApp", reqDao.getByAmka(id));
 			return "app";
 		}
-		/*
+		
 
 		@RequestMapping("/Appointment/set/{amka}")
 		public String saveApp(@PathVariable("amka") int id, Model model) {
-			model.addAttribute("newApppoint", reqDao.getByAmka(id));
+			model.addAttribute("newAppoint", reqDao.getByAmka(id));
 			return "setapp";
 		}
-	 		*/
+	 		
 		
 		@RequestMapping(value = "/req_user", method = RequestMethod.GET)
 		public String req_user(Model model) {

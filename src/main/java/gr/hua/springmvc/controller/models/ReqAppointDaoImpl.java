@@ -181,26 +181,7 @@ public class ReqAppointDaoImpl implements ReqAppointDao {
         return appointList;
     }
     
-    public void set(ReqAppoint req){
-    	int amka = req.getAmka();
-		String name = req.getName();
-		String surname = req.getSurname();
-		String tameio = req .getTameio();
-		String ejetash = req.getEjetash();
-		int emer = req.getEmergency();
-		String date = req.getDate();
-		String time = req.getTime();
-		Appointment app = new Appointment();
-		app.setAmka(amka);
-		app.setName(name);
-		app.setSurname(surname);
-		app.setTameio(tameio);
-		app.setEjetash(ejetash);
-		app.setEmergency(emer);
-		app.setDate(date);
-		app.setTime(time);
-		//appdao.save(app);
-    	/*
+    public void set(ReqAppoint appoint){	
     	String query = "insert into appointment (amka, name, surname, tameio, ejetash, emergency, date, time) values (?,?,?,?,?,?,?,?)";
     	Connection con = null;
         PreparedStatement ps = null;
@@ -210,7 +191,7 @@ public class ReqAppointDaoImpl implements ReqAppointDao {
             ps.setInt(1, appoint.getAmka());
             ps.setString(2, appoint.getName());
             ps.setString(3, appoint.getSurname());
-            ps.setString(4,appoint.getTameio());
+            ps.setString(4, appoint.getTameio());
             ps.setString(5, appoint.getEjetash());
             ps.setInt(6, appoint.getEmergency());
             ps.setString(7, appoint.getDate());
@@ -229,7 +210,8 @@ public class ReqAppointDaoImpl implements ReqAppointDao {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-        }*/
+        }
     }
+    
     
 }
