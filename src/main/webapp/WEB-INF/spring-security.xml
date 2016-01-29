@@ -31,8 +31,7 @@
        <intercept-url pattern="/Request/**" access="hasRole('ROLE_ADMIN')"/>
        <intercept-url pattern="/addRequest" access="hasRole('ROLE_ADMIN')"/>
        
-              <intercept-url pattern="/Request/addparam" access="permitAll"/>
-       
+       <intercept-url pattern="/Request/addparam" access="permitAll"/>
        <intercept-url pattern="/req_appointment/**" access="permitAll"/>
        <intercept-url pattern="/req_appointment/add" access="permitAll"/>
        <intercept-url pattern="/allevents" access="permitAll"/>
@@ -40,6 +39,7 @@
        
        <form-login default-target-url='/helloworld' 
        always-use-default-target='true'></form-login>
+       
 	   <logout logout-success-url="/logout" logout-url="/j_spring_security_logout" />
 		<csrf disabled="true"/>
     </http>

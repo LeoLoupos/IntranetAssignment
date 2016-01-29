@@ -31,8 +31,9 @@ public class ApiController {
 	EmailDao emailDao = ctx.getBean("EmailDao", EmailDao.class);
 	RequestDao requestDao = ctx.getBean("RequestDao", RequestDao.class);
 
-	//GET or post
-	@RequestMapping(value = "/req_appointment/{amka}", method = RequestMethod.POST, produces = "application/json")
+	
+	//Api controller to handle requests in/outside the website
+	@RequestMapping(value = "/req_appointment/{amka}", method = RequestMethod.GET, produces = "application/json")
     public @ResponseBody ReqAppoint getReqAppointInJSON(@PathVariable Integer amka) throws AppointNotFoundException {
 		ReqAppoint req = reqDao.getByAmka(amka);
 

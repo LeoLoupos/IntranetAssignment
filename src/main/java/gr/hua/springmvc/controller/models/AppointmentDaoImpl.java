@@ -17,6 +17,10 @@ public class AppointmentDaoImpl implements AppointmentDao {
         this.dataSource = dataSource;
     }
     
+    
+    ////Every Dao has the same functionality.
+    
+    //To save an entry
     public void save(Appointment appoint){
     	String query = "insert into appointment (amka, name, surname, tameio, ejetash, emergency, date, time) values (?,?,?,?,?,?,?,?)";
     	Connection con = null;
@@ -48,6 +52,7 @@ public class AppointmentDaoImpl implements AppointmentDao {
         }
     }
     
+    //to take an entry
     public Appointment getByAmka(int amka){
     	String query = "select id, name, surname, tameio, ejetash, emergency, date, time from appointment where amka = ?";
         Appointment appoint = null;
@@ -88,6 +93,7 @@ public class AppointmentDaoImpl implements AppointmentDao {
         return appoint;
     }
     
+    //to update an entry
     public void update(Appointment appoint){
     	String query = "update appointment set name = ?, surname = ?, tameio = ?, ejetash = ?, emergency = ?, date = ?, time = ? where amka = ?";
         Connection con = null;
@@ -119,6 +125,7 @@ public class AppointmentDaoImpl implements AppointmentDao {
         }
     }
     
+    //To delete an entry
     public void deleteById(int amka) {
         String query = "delete from appointment where amka=?";
         Connection con = null;
@@ -143,6 +150,7 @@ public class AppointmentDaoImpl implements AppointmentDao {
         }
     }
 	
+    //To take all entries
 	public List<Appointment> getAll() {
         String query = "select id, amka, name, surname, tameio, ejetash, emergency, date, time from appointment";
         List<Appointment> appointList = new ArrayList<Appointment>();
