@@ -21,7 +21,7 @@ border: 2px solid black;
 </head>
 <body>
 <h1>
-	Requested Application 
+	Requested Users 
 </h1>
 <section>
 <table>
@@ -32,6 +32,9 @@ border: 2px solid black;
 	<th> Surname </th>
 	<th> Tameio </th>
 	<th> Email </th>
+		<th> Username </th>
+		<th> Password </th>
+	
 	<th> Approved </th>
 	</tr>
 	<c:forEach items="${requests}" var="request"> 
@@ -42,6 +45,8 @@ border: 2px solid black;
     <td>${request.surname}</td>
     <td>${request.tameio}</td>
     <td>${request.email}</td>
+        <td>${request.username}</td>
+        <td>${request.password}</td>
     <td>${request.approve}</td>
         
     <td> <a href="/SpringSecurityHelloWorlExample/Request/edit/${request.amka}">Edit </a></td>

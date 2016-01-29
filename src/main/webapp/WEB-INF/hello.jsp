@@ -15,7 +15,7 @@ background-color:  #f2f2f2;
 <title>Welcome Page</title>
 </head>
 <body>
-${message}
+<h1>${message}</h1>
 <ul>
 <li>
 <a href="<c:url value='/admin'/>">Admin's Protected Page</a>

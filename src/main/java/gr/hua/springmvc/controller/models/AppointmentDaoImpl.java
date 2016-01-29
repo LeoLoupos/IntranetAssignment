@@ -49,7 +49,7 @@ public class AppointmentDaoImpl implements AppointmentDao {
     }
     
     public Appointment getByAmka(int amka){
-    	String query = "select id,name, surname, tameio, ejetash, emergency, date, time from appointment where amka = ?";
+    	String query = "select id, name, surname, tameio, ejetash, emergency, date, time from appointment where amka = ?";
         Appointment appoint = null;
         Connection con = null;
         PreparedStatement ps = null;
@@ -62,6 +62,7 @@ public class AppointmentDaoImpl implements AppointmentDao {
             if(rs.next()){
                 appoint = new Appointment();
                 appoint.setAmka(amka);
+                appoint.setId(rs.getInt("id"));
                 appoint.setName(rs.getString("name"));
                 appoint.setSurname(rs.getString("surname"));
                 appoint.setTameio(rs.getString("tameio"));

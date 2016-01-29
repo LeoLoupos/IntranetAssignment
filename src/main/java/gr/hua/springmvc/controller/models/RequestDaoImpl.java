@@ -18,7 +18,7 @@
 	    }
 	    
 	    public List<Request> getAll() {
-	        String query = "select id, amka, name, surname, tameio ,email , approve from request_user";
+	        String query = "select id, amka, name, surname, tameio, email , username, password, approve from request_user";
 	        List<Request> userList = new ArrayList<Request>();
 	        Connection con = null;
 	        PreparedStatement ps = null;
@@ -35,6 +35,8 @@
 	                user.setSurname(rs.getString("surname"));
 	                user.setTameio(rs.getString("tameio"));
 	                user.setEmail(rs.getString("email"));
+	                user.setUsername(rs.getString("username"));
+	                user.setPassword(rs.getString("password"));
 	                user.setApprove(rs.getString("approve"));
 	                userList.add(user);
 	            }
@@ -77,7 +79,7 @@
 	    }
 	    
 	    public Request getByAmka(int amka){
-	    	String query = "select id,name, surname, tameio, email , approve from request_user where amka = ?";
+	    	String query = "select id, name, surname, tameio, email , username, password, approve from request_user where amka = ?";
 	    	Request req = null;
 	        Connection con = null;
 	        PreparedStatement ps = null;
@@ -95,6 +97,8 @@
 	            	req.setSurname(rs.getString("surname"));
 	            	req.setTameio(rs.getString("tameio"));
 	            	req.setEmail(rs.getString("email"));
+	            	req.setUsername(rs.getString("username"));
+	            	req.setPassword(rs.getString("password"));
 	            	req.setApprove(rs.getString("approve"));
 	                
 	                System.out.println("Request Found::"+req);
@@ -117,7 +121,7 @@
 	    
 	    
 	    public void save(Request req){
-	    	String query = "insert into request_user (amka, name, surname, tameio, email, approve) values (?,?,?,?,?,?)";
+	    	String query = "insert into request_user (amka, name, surname, tameio, email, username, password, approve) values (?,?,?,?,?,?,?,?)";
 	    	Connection con = null;
 	        PreparedStatement ps = null;
 	        try{
@@ -128,7 +132,9 @@
 	            ps.setString(3, req.getSurname());
 	            ps.setString(4,req.getTameio());
 	            ps.setString(5, req.getEmail());
-	            ps.setString(6, req.getApprove());
+	            ps.setString(6, req.getUsername());
+	            ps.setString(7, req.getPassword());
+	            ps.setString(8, req.getApprove());
 
 	            int out = ps.executeUpdate();
 	            if(out !=0){
@@ -147,7 +153,7 @@
 	    }
 	    
 	    public void update(Request req){
-	    	String query = "update request_user set name = ?, surname = ?, tameio = ?, email = ?, approve=? where amka = ?";
+	    	String query = "update request_user set name = ?, surname = ?, tameio = ?, email = ?, username=?, password=?, approve=? where amka = ?";
 	        Connection con = null;
 	        PreparedStatement ps = null;
 	        try{
@@ -157,8 +163,11 @@
 	            ps.setString(2, req.getSurname());
 	            ps.setString(3,req.getTameio());
 	            ps.setString(4, req.getEmail());
-	            ps.setString(5, req.getApprove());
-	            ps.setInt(6, req.getAmka());
+	            ps.setString(5, req.getUsername());
+	            ps.setString(6, req.getPassword());
+
+	            ps.setString(7, req.getApprove());
+	            ps.setInt(8, req.getAmka());
 	            int out = ps.executeUpdate();
 	            if(out !=0){
 	                System.out.println("Appointment updated with amka="+req.getAmka());

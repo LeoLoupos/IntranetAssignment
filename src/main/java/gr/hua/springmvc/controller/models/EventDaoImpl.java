@@ -80,7 +80,7 @@ public class EventDaoImpl implements EventDao {
     }
     
     public Event getById(int id){
-    	String query = "select name, date from event where id = ?";
+    	String query = "select id ,name, date from event where id = ?";
         Event evt = null;
         Connection con = null;
         PreparedStatement ps = null;
@@ -145,9 +145,9 @@ public class EventDaoImpl implements EventDao {
             con = (Connection) dataSource.getConnection();
             ps = (PreparedStatement) con.prepareStatement(query);
             ps.setString(1, evt.getName());
-            ps.setString(6, evt.getDate());
+            ps.setString(2, evt.getDate());
          
-            ps.setInt(8, evt.getId());
+            ps.setInt(3, evt.getId());
             int out = ps.executeUpdate();
             if(out !=0){
                 System.out.println("Appointment updated with amka="+evt.getId());

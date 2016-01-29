@@ -46,6 +46,13 @@ background-color:  #f2f2f2;
         <td><form:label path="email">Email</form:label></td>
         <td><form:input path="email" />  </td>
     </tr>
+    <tr>
+        <td><form:label path="username">Username</form:label></td>
+        <td><form:input path="username" />  </td>
+    </tr>     <tr>
+        <td><form:label path="password">Password</form:label></td>
+        <td><form:input path="password" />  </td>
+    </tr>
      <tr>
         <td><form:label path="approve">Approve</form:label></td>
         <td><form:input path="approve" />  </td>
