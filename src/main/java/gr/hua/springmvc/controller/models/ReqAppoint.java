@@ -1,6 +1,7 @@
 package gr.hua.springmvc.controller.models;
 
 public class ReqAppoint {
+	private int id;
 	private int amka;
 	private String name;
 	private String surname;
@@ -12,6 +13,12 @@ public class ReqAppoint {
 
 	
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public int getAmka() {
 		return amka;
 	}

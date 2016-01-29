@@ -23,13 +23,14 @@ background-color:  #f2f2f2;
         <td><form:input path="id"/></td>
         
     </tr>
-     <tr>
-        <td><form:label path="name">Name</form:label></td>
-        <td><form:input path="name" /></td>
-    </tr>
+   
     <tr>
         <td><form:label path="email">Email</form:label></td>
         <td><form:input path="email" />  </td>
+    </tr>
+      <tr>
+        <td><form:label path="name">Name</form:label></td>
+        <td><form:input path="name" /></td>
     </tr>
     <tr>
         <td colspan="2">

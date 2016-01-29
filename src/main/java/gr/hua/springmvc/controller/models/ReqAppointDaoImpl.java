@@ -51,7 +51,7 @@ public class ReqAppointDaoImpl implements ReqAppointDao {
     }
     
     public ReqAppoint getByAmka(int amka){
-    	String query = "select name, surname, tameio, ejetash, emergency, date, time from request_appointment where amka = ?";
+    	String query = "select id, name, surname, tameio, ejetash, emergency, date, time from request_appointment where amka = ?";
     	ReqAppoint appoint = null;
         Connection con = null;
         PreparedStatement ps = null;
@@ -64,6 +64,7 @@ public class ReqAppointDaoImpl implements ReqAppointDao {
             if(rs.next()){
                 appoint = new ReqAppoint();
                 appoint.setAmka(amka);
+                appoint.setId(rs.getInt("id"));
                 appoint.setName(rs.getString("name"));
                 appoint.setSurname(rs.getString("surname"));
                 appoint.setTameio(rs.getString("tameio"));

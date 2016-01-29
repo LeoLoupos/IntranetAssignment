@@ -27,6 +27,7 @@ border: 2px solid black;
 <section>
 <table>
 	<tr>
+	<th> Id </th>
 	<th> Amka </th>
 	<th> Name </th>
 	<th> Surname </th>
@@ -38,6 +39,7 @@ border: 2px solid black;
 	</tr>
 	<c:forEach items="${appoints}" var="appoint"> 
   <tr>
+  	<td>${appoint.id}</td>
     <td>${appoint.amka}</td>
     <td>${appoint.name}</td>
     <td>${appoint.surname}</td>

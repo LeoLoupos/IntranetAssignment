@@ -52,19 +52,18 @@ public class EmailDaoImpl implements EmailDao {
     }
 	
 	 public void save(Email eml){
-	    	String query = "insert into email (id, name, email) values (?,?,?)";
+	    	String query = "insert into email (name, email) values (?,?)";
 	    	Connection con = null;
 	        PreparedStatement ps = null;
 	        try{
 	            con = (Connection) dataSource.getConnection();
 	            ps = (PreparedStatement) con.prepareStatement(query);
-	            ps.setInt(1, eml.getId());
-	            ps.setString(2, eml.getName());
-	            ps.setString(3, eml.getEmail());
+	            ps.setString(1, eml.getName());
+	            ps.setString(2, eml.getEmail());
 	            int out = ps.executeUpdate();
 	            if(out !=0){
-	                System.out.println("email saved with id="+eml.getId());
-	            }else System.out.println("email save failed with id="+eml.getId());
+	                System.out.println("email saved with id=");
+	            }else System.out.println("email save failed with id=");
 	        }catch(SQLException e){
 	            e.printStackTrace();
 	        }finally{

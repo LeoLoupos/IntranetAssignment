@@ -18,7 +18,7 @@
        <intercept-url pattern="/edit/**" access="hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPER') or hasRole('ROLE_MODE')"/>
        <intercept-url pattern="/remove/**" access="hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPER') or hasRole('ROLE_MODE')"/>
        <intercept-url pattern="/emails" access="hasRole('ROLE_ADMIN')"/>
-       <intercept-url pattern="/Email/**" access="hasRole('ROLE_ADMIN')"/>
+       <intercept-url pattern="/Email/**" access="hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPER') or hasRole('ROLE_MODE')"/>
        <intercept-url pattern="/addEmail" access="hasRole('ROLE_ADMIN')"/>
        <intercept-url pattern="/events" access="hasRole('ROLE_ADMIN')"/>
        <intercept-url pattern="/Event/**" access="hasRole('ROLE_ADMIN')"/>
@@ -31,6 +31,12 @@
        <intercept-url pattern="/Request/**" access="hasRole('ROLE_ADMIN')"/>
        <intercept-url pattern="/addRequest" access="hasRole('ROLE_ADMIN')"/>
        
+              <intercept-url pattern="/Request/addparam" access="permitAll"/>
+       
+       <intercept-url pattern="/req_appointment/**" access="permitAll"/>
+       <intercept-url pattern="/req_appointment/add" access="permitAll"/>
+       <intercept-url pattern="/allevents" access="permitAll"/>
+       <intercept-url pattern="/req_user/add" access="permitAll"/>
        
        <form-login default-target-url='/helloworld' 
        always-use-default-target='true'></form-login>

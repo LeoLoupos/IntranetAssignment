@@ -18,7 +18,12 @@ background-color:  #f2f2f2;
 <h2>Appointment's Information</h2>
 <font color="red">${message}</font>
 <form:form method="POST"  modelAttribute="newAppointment" action="/SpringSecurityHelloWorlExample/addAppointment">
-   <table>   
+   <table>
+   <tr>
+        <td><form:label path="id">Id</form:label></td>
+        <td><form:input path="id"/></td>
+        
+    </tr>   
    <tr>
         <td><form:label path="Amka">Amka</form:label></td>
         <td><form:input path="Amka"/></td>

@@ -85,7 +85,7 @@ public class HelloWorldController {
 			
 			ModelAndView model = new ModelAndView();
 				
-				if(appointment.getAmka()==0){
+				if(appointment.getId()==0){
 			 	appointmentDao.save(appointment);
 				}else{
 				appointmentDao.update(appointment);
@@ -232,9 +232,11 @@ public class HelloWorldController {
 			
 			ModelAndView model = new ModelAndView();
 				
-				
+				if(req.getId() == 0){
 				reqDao.update(req);
-				
+				}else{
+				reqDao.save(req);	
+				}
 			 	request.setAttribute("newApp", req.getAmka());
 				model = new ModelAndView("redirect:/req_appointment");
 			

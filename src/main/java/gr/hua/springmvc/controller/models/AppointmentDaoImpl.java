@@ -49,7 +49,7 @@ public class AppointmentDaoImpl implements AppointmentDao {
     }
     
     public Appointment getByAmka(int amka){
-    	String query = "select name, surname, tameio, ejetash, emergency, date, time from appointment where amka = ?";
+    	String query = "select id,name, surname, tameio, ejetash, emergency, date, time from appointment where amka = ?";
         Appointment appoint = null;
         Connection con = null;
         PreparedStatement ps = null;
@@ -143,7 +143,7 @@ public class AppointmentDaoImpl implements AppointmentDao {
     }
 	
 	public List<Appointment> getAll() {
-        String query = "select amka, name, surname, tameio, ejetash, emergency, date, time from appointment";
+        String query = "select id, amka, name, surname, tameio, ejetash, emergency, date, time from appointment";
         List<Appointment> appointList = new ArrayList<Appointment>();
         Connection con = null;
         PreparedStatement ps = null;
@@ -154,6 +154,7 @@ public class AppointmentDaoImpl implements AppointmentDao {
             rs = ps.executeQuery();
             while(rs.next()){
                 Appointment appoint = new Appointment();
+                appoint.setId(rs.getInt("id"));
                 appoint.setAmka(rs.getInt("amka"));
                 appoint.setName(rs.getString("name"));
                 appoint.setSurname(rs.getString("surname"));
