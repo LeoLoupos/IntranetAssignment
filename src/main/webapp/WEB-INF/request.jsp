@@ -12,6 +12,12 @@
 body{
 background-color:  #f2f2f2;
 }
+
+.error {
+    color: #ff0000;
+    font-style: italic;
+    font-weight: bold;
+}
 </style>
 </head>
 <body>
@@ -41,10 +47,14 @@ background-color:  #f2f2f2;
      <tr>
         <td><form:label path="tameio">Tameio</form:label></td>
         <td><form:input path="tameio" />  </td>
+        <td><form:errors path="tameio" cssClass="error" /></td>
+
     </tr> 
     <tr>
         <td><form:label path="email">Email</form:label></td>
         <td><form:input path="email" />  </td>
+        <td><form:errors path="email" cssClass="error" /></td>
+        
     </tr>
     <tr>
         <td><form:label path="username">Username</form:label></td>

@@ -11,6 +11,11 @@
 body{
 background-color:  #f2f2f2;
 }
+.error {
+    color: #ff0000;
+    font-style: italic;
+    font-weight: bold;
+}
 </style>
 </head>
 <body>
@@ -30,6 +35,8 @@ background-color:  #f2f2f2;
     <tr>
         <td><form:label path="date">Date</form:label></td>
         <td><form:input path="date" />  </td>
+        <td><form:errors path="date" cssClass="error" /></td>
+
     </tr>
     <tr>
         <td colspan="2">

@@ -1,11 +1,17 @@
 package gr.hua.springmvc.controller.models;
 
+import javax.validation.constraints.Size;
+
 public class Request {
 	private int id;
 	private int amka;
+	@Size(min=2, max=45) 
 	private String name;
+	@Size(min=2, max=45) 
 	private String surname;
+	@Size(min=2, max=45) 
 	private String tameio;
+	@Size(min=2, max=45) 
 	private String email;
 	private String username;
 	private String password;

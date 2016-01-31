@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -83,10 +84,15 @@ public class HelloWorldController {
 	 }
 	 
 	 @RequestMapping(value = "/addAppointment", method = RequestMethod.POST)
-		public ModelAndView addAppointment(@ModelAttribute("newAppointment")Appointment appointment, BindingResult result, HttpServletRequest request) throws SQLException {
+		public ModelAndView addAppointment(@ModelAttribute("newAppointment") @Valid Appointment appointment, BindingResult result, HttpServletRequest request) throws SQLException {
 			
 			ModelAndView model = new ModelAndView();
 				
+				if (result.hasErrors()) {
+					model = new ModelAndView("appointment");
+					return model;
+				}
+			
 				if(appointment.getId()==0){
 			 	appointmentDao.save(appointment);
 				}else{
@@ -146,9 +152,14 @@ public class HelloWorldController {
 		}
 		
 		@RequestMapping(value = "/addEmail", method = RequestMethod.POST)
-		public ModelAndView addEmail(@ModelAttribute("newEmail") Email eml, BindingResult result, HttpServletRequest request) throws SQLException {
+		public ModelAndView addEmail(@ModelAttribute("newEmail")@Valid Email eml, BindingResult result, HttpServletRequest request) throws SQLException {
 			
 			ModelAndView model = new ModelAndView();
+			
+			if (result.hasErrors()) {
+				model = new ModelAndView("eml");
+				return model;
+			}
 				
 				emailDao.save(eml);
 				
@@ -186,6 +197,12 @@ public class HelloWorldController {
 		public ModelAndView addEvent(@ModelAttribute("newEvent") Event evt, BindingResult result, HttpServletRequest request) throws SQLException {
 			
 			ModelAndView model = new ModelAndView();
+
+			if (result.hasErrors()) {
+				model = new ModelAndView("evt");
+				return model;
+			}
+			
 				if(evt.getId()== 0){
 				eventDao.save(evt);
 				}else{
@@ -230,10 +247,16 @@ public class HelloWorldController {
 		}
 		
 		@RequestMapping(value = "/addAppoint", method = RequestMethod.POST)
-		public ModelAndView addApp(@ModelAttribute("newApp") ReqAppoint req, BindingResult result, HttpServletRequest request) throws SQLException {
+		public ModelAndView addApp(@ModelAttribute("newApp")@Valid ReqAppoint req, BindingResult result, HttpServletRequest request) throws SQLException {
 			
 			ModelAndView model = new ModelAndView();
-				
+
+			if (result.hasErrors()) {
+				model = new ModelAndView("app");
+				return model;
+			}	
+			
+			
 				if(req.getId() == 0){
 				reqDao.update(req);
 				}else{
@@ -314,9 +337,13 @@ public class HelloWorldController {
 		}
 		
 		@RequestMapping(value = "/addRequest", method = RequestMethod.POST)
-		public ModelAndView addRequest(@ModelAttribute("newRequest") Request req, BindingResult result, HttpServletRequest request) throws SQLException {
+		public ModelAndView addRequest(@ModelAttribute("newRequest")@Valid Request req, BindingResult result, HttpServletRequest request) throws SQLException {
 			
 			ModelAndView model = new ModelAndView();
+			if (result.hasErrors()) {
+				model = new ModelAndView("request");
+				return model;
+			}	
 			
 				if(req.getId()==0){
 				requestDao.save(req);

@@ -13,11 +13,16 @@
 body{
 background-color:  #f2f2f2;
 }
+
+.error {
+    color: #ff0000;
+    font-style: italic;
+    font-weight: bold;
+}
 </style>
 </head>
 <body>
 <h2>Appointment's Informations</h2>
-<font color="red">${message}</font>
 <form:form method="POST"  modelAttribute="newApp" action="/SpringSecurityHelloWorlExample/addAppoint">
    <table>
     <tr>
@@ -43,10 +48,14 @@ background-color:  #f2f2f2;
      <tr>
         <td><form:label path="tameio">Tameio</form:label></td>
         <td><form:input path="tameio" />  </td>
+        <td><form:errors path="tameio" cssClass="error" /></td>
+
     </tr> 
     <tr>
         <td><form:label path="ejetash">Examination</form:label></td>
         <td><form:input path="ejetash" />  </td>
+        <td><form:errors path="ejetash" cssClass="error" /></td>
+
     </tr>
      <tr>
         <td><form:label path="emergency">Emergency</form:label></td>

@@ -12,21 +12,30 @@
 body{
 background-color:  #f2f2f2;
 }
+
+.error {
+    color: #ff0000;
+    font-style: italic;
+    font-weight: bold;
+}
 </style>
 </head>
 <body>
 <h2>Appointment's Information</h2>
-<font color="red">${message}</font>
 <form:form method="POST"  modelAttribute="newAppointment" action="/SpringSecurityHelloWorlExample/addAppointment">
    <table>
+      <c:if test="${newAppointment.id != 0}" >
    <tr>
         <td><form:label path="id">Id</form:label></td>
-        <td><form:input path="id"/></td>
+        <td><form:input path="id" readonly="true"/></td>
         
-    </tr>   
+    </tr>  
+        </c:if>
+     
    <tr>
         <td><form:label path="Amka">Amka</form:label></td>
         <td><form:input path="Amka"/></td>
+        
         
     </tr>
      <tr>
@@ -42,10 +51,14 @@ background-color:  #f2f2f2;
      <tr>
         <td><form:label path="tameio">Tameio</form:label></td>
         <td><form:input path="tameio" />  </td>
+        <td><form:errors path="tameio" cssClass="error" /></td>
+        
     </tr> 
     <tr>
         <td><form:label path="ejetash">Examination</form:label></td>
         <td><form:input path="ejetash" />  </td>
+        <td><form:errors path="ejetash" cssClass="error" /></td>
+
     </tr>
      <tr>
         <td><form:label path="emergency">Emergency</form:label></td>

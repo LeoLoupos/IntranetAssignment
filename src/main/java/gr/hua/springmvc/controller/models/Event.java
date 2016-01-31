@@ -1,8 +1,12 @@
 package gr.hua.springmvc.controller.models;
 
+import javax.validation.constraints.Size;
+
 public class Event {
 	private int id;
+	@Size(min=2, max=45) 
 	private String date;
+	@Size(min=2, max=45) 
 	private String name;
 	public int getId() {
 		return id;

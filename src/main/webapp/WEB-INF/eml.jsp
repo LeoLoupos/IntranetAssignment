@@ -12,6 +12,12 @@
 body{
 background-color:  #f2f2f2;
 }
+
+.error {
+    color: #ff0000;
+    font-style: italic;
+    font-weight: bold;
+}
 </style>
 </head>
 <body>
@@ -27,10 +33,14 @@ background-color:  #f2f2f2;
     <tr>
         <td><form:label path="email">Email</form:label></td>
         <td><form:input path="email" />  </td>
+        <td><form:errors path="email" cssClass="error" /></td>
+        
     </tr>
       <tr>
         <td><form:label path="name">Name</form:label></td>
         <td><form:input path="name" /></td>
+        <td><form:errors path="name" cssClass="error" /></td>
+        
     </tr>
     <tr>
         <td colspan="2">

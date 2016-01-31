@@ -1,10 +1,15 @@
 package gr.hua.springmvc.controller.models;
 
+import javax.validation.constraints.Size;
+
 public class Email {
 
 	private int id;
+	@Size(min=2, max=45) 
 	private String email;
+	@Size(min=2, max=45) 
 	private String name;
+	
 	public int getId() {
 		return id;
 	}
