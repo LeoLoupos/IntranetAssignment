@@ -31,11 +31,13 @@
        <intercept-url pattern="/Request/**" access="hasRole('ROLE_ADMIN')"/>
        <intercept-url pattern="/addRequest" access="hasRole('ROLE_ADMIN')"/>
        
-       <intercept-url pattern="/Request/addparam" access="permitAll"/>
+              <intercept-url pattern="/emails/**" access="permitAll"/>
+       
+       <intercept-url pattern="/request/addparam" access="permitAll"/>
        <intercept-url pattern="/req_appointment/**" access="permitAll"/>
-       <intercept-url pattern="/req_appointment/add" access="permitAll"/>
+       <intercept-url pattern="/req_appoinement/addparam" access="permitAll"/>
        <intercept-url pattern="/allevents" access="permitAll"/>
-       <intercept-url pattern="/req_user/add" access="permitAll"/>
+       <intercept-url pattern="/request_user/add" access="permitAll"/>
        
        <form-login default-target-url='/helloworld' 
        always-use-default-target='true'></form-login>

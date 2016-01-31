@@ -145,7 +145,7 @@ public class ReqAppointDaoImpl implements ReqAppointDao {
     }
     
     public List<ReqAppoint> getAll() {
-        String query = "select amka, name, surname, tameio, ejetash, emergency, date, time from request_appointment";
+        String query = "select id , amka, name, surname, tameio, ejetash, emergency, date, time from request_appointment";
         List<ReqAppoint> appointList = new ArrayList<ReqAppoint>();
         Connection con = null;
         PreparedStatement ps = null;
@@ -156,6 +156,7 @@ public class ReqAppointDaoImpl implements ReqAppointDao {
             rs = ps.executeQuery();
             while(rs.next()){
                 ReqAppoint appoint = new ReqAppoint();
+                appoint.setId(rs.getInt("id"));
                 appoint.setAmka(rs.getInt("amka"));
                 appoint.setName(rs.getString("name"));
                 appoint.setSurname(rs.getString("surname"));

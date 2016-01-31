@@ -66,5 +66,9 @@ public class Appointment {
 	}
 	public void setTime(String time) {
 		this.time = time;
-	}
+	}@Override
+	
+    public String toString(){
+        return "{Amka="+amka+",Name="+name+",Surname="+surname+"Tameio="+tameio+"Emergency="+emergency+"Examination="+ejetash+"Date="+date+"Time="+time+"}";
+    }
 }

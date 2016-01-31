@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import gr.hua.springmvc.controller.models.Appointment;
@@ -37,6 +38,7 @@ public class HelloWorldController {
 	RequestDao requestDao = ctx.getBean("RequestDao", RequestDao.class);
 	ReqAppointDao reqDao = ctx.getBean("ReqAppointDao", ReqAppointDao.class);
 
+	
 		
 	 @RequestMapping("/helloworld")
 	 public ModelAndView hello() {
@@ -110,7 +112,7 @@ public class HelloWorldController {
 		}	 
 	 
 		@RequestMapping(value = "/Appointment", method = RequestMethod.GET)
-		public String employee(Model model) {
+		public String appointa(Model model) {
 			Appointment newAppointment = new Appointment();
 			model.addAttribute("newAppointment", newAppointment);
 			return "appointment";
@@ -242,6 +244,7 @@ public class HelloWorldController {
 			
 			return model;
 		}
+		//Save a req_app to the app's table
 		@RequestMapping(value = "/setAppoint", method = RequestMethod.POST)
 		public ModelAndView setApp(@ModelAttribute("newAppoint") ReqAppoint req, HttpServletRequest request) throws SQLException {
 			
@@ -273,7 +276,7 @@ public class HelloWorldController {
 			return model;
 		}
 		@RequestMapping("/Appointment/remove/{amka}")
-		public String removeApp(@PathVariable("id") int id) {
+		public String removeApp(@PathVariable("amka") int id) {
 
 			reqDao.deleteById(id);
 			return "redirect:/req_appointment";

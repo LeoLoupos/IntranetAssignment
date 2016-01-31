@@ -68,5 +68,8 @@ public class ReqAppoint {
 		this.date = date;
 	}
 	
-	
+	@Override
+    public String toString(){
+        return "{Amka="+amka+",Name="+name+",Surname="+surname+"Tameio="+tameio+"Emergency="+emergency+"Examination="+ejetash+"Date="+date+"Time="+time+"}";
+    }
 }

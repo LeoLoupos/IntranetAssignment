@@ -67,6 +67,11 @@ public class Request {
 		this.approve = approve;
 	}
 	
+
+	@Override
+    public String toString(){
+        return "{ID="+id+",Name="+name+",SurName="+surname+"Tameio="+tameio+"email="+email+"approve"+approve+"}";
+    }
 	
 	
 }
